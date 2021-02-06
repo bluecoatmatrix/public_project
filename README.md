@@ -29,11 +29,13 @@ Note: All the responses message for these API requests are in Json format.
 2. clone git repository and go to the package
 
    `git clone https://github.com/bluecoatmatrix/tower_of_hanoi.git`
+   
    `cd tower_of_hanoi`
    
 3. create a python virtual environment and activate virtual environment
    
    `python3 -m venv env`
+   
    `. env/bin/activate`
    
 4. install the requirements file
@@ -88,6 +90,7 @@ Note: All the responses message for these API requests are in Json format.
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/successfulmove.png)
 
 13. Try to move a bigger disk to a small disk by repeat the last move again
+
     `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=1"`
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/invliadmove.png)
 
