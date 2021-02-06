@@ -64,62 +64,59 @@ Note: All the responses message for these API requests are in Json format.
    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/Screen%20Shot%202021-02-06%20at%202.35.14%20AM.png)
 
 8. Try to make an invalid move with source=-1 from any browser tool can perform put request or run following command; then you will get invalid source error message.
-	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=-1&target=1"`
-   ![screenshot](invalid source)
+   `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=-1&target=1"`
+   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/invalidsource.png)
 
 9. Similarly try on invalid target=4
-	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=4"`
-   ![screenshot](invalid target)
+   `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=4"`
+   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/invalidtarget.png)
 
 10. Try on source and target are equal
-	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=0"`
-    ![screenshot](equal)
+    `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=0"`
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/source%3Dtarge.png)
 
 11. Try to move from source has empty disks
-	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=2&target=1"`
-    ![screenshot](empty source)
+    `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=2&target=1"`
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/sourceempty.png)
 
 12. Now make a valid move 
-	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=1"`
-    ![screenshot](succ move)
+    `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=1"`
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/successfulmove.png)
 
 13. Try to move a bigger disk to a small disk by repeat the last move again
-	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=1"`
-    ![screenshot](invalid move)
+    `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=1"`
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/invliadmove.png)
 
 14. Try to check if you have won the game now(not yet) from browser: http://127.0.0.1:5000/hanoi/win
-    ![screenshot](nowin)
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/notwin.png)
     
     or `curl -X GET "http://127.0.0.1:5000/hanoi/win"` 
-    ![screenshot](nowin cli)
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/nowincli.png)
 
 15. Try all moves from file movestowin.txt to reach winning state. You can try to get any in progress state anytime you want
-    ![screenshot](inprogress) 
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/inprogressstate.png) 
 
 16. Once reached winning state, try to get the winning state: http://127.0.0.1:5000/hanoi/state
-    ![screenshot](win state)
-    
-    or `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
-    ![screenshot](win state cli)
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/winstate.png)
 
 17. Now you are winner! http://127.0.0.1:5000/hanoi/win
-    ![screenshot](win)
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/win.png)
     
     or `curl -X GET "http://127.0.0.1:5000/hanoi/win"`
-    ![screenshot](win cli)
+    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/wincli.png)
 
 
 ## Other invalid user cases handling
 
 1. Move disk when source and target arguments are not defined or empty
-   ![screenshot](emptysourpara)
-   ![screenshot](emptytargetparam)
+   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/emptysourceparam.png)
+   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/emptytargetparam.png)
 
 2. Use wrong REST API methods 
-   ![screenshot](wrongmethod)
+   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/wrongmethod.png)
 
 3. Try to check win or get state before the game is created
-   ![screenshot](beforecreate)
+   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/beforecreate.png)
 
 
 
