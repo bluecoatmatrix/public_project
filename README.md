@@ -16,9 +16,8 @@ Current implementation will initialize only one game at a time with 3 robs, inde
 - GET /hanoi/create: to create/initialize a game; every time this API is called, the game state will be reset
 - GET /hanoi/state: to fetch the complete state of current game of robs and disks ie. {"rob0":[4,3,2], "rob1":[1], "rob2":[]}
 - PUT /hanoi/move?source=num&target=num: to move a disk from source rob to target rob. If it is a valid move, the effects will be saved; otherwise a proper error message will be displayed 
-- GET /hanoi/win: to check if user has won the game
-If user try to play the game before creating the game, an error message will be displayed to inform the user the game is not created yet.
-- Some edges cases handling, such as move disk when source and target rob is not defined or empty; must creategame first before other API calls etc.
+- GET /hanoi/win: to check if user has won the game at any time they want to. A proper message will be shown to tell the user is won or not
+- Some edges cases handling, such as move disk when source and target parameters are not defined or empty from API; must create game first before other API calls etc.
  
 Note: All the responses message for these API requests are in Json format.
 
