@@ -102,6 +102,7 @@ Note: All the responses message for these API requests are in Json format.
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/nowincli.png)
 
 15. Try all moves from file movestowin.txt to reach winning state. You can check any in-progress state at any time
+
     For example:
     
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/inprogressstate.png) 
@@ -141,7 +142,7 @@ Follwing is an example to run Unit tests and integration tests together
 	```pytest --cov disk --cov rob --cov hanoi --cov app --cov-report term-missing```
    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/pytest.png)
 
-Note: The app.py coverage missing is due to last line is the __main__ function all. Maybe I can move that call to anohter file. Also it is really hard to find a scenario to trigger exception of create API call.
+Note: The app.py coverage missing is due to last line is the __main__ function. Maybe I can move that call to anohter file. Also it is really hard to find a scenario to trigger exception of create API call.
 
 
 
