@@ -27,6 +27,7 @@ Note: All the responses message for these API requests are in Json format.
 1. make sure python3 and pip is already installed
 
 2. clone git repository and go to the package
+
    `git clone https://github.com/bluecoatmatrix/tower_of_hanoi.git`
    `cd tower_of_hanoi`
    
@@ -94,6 +95,7 @@ Note: All the responses message for these API requests are in Json format.
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/notwin.png)
     
     or `curl -X GET "http://127.0.0.1:5000/hanoi/win"` 
+    
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/nowincli.png)
 
 15. Try all moves from file movestowin.txt to reach winning state. You can try to get any in progress state anytime you want
@@ -103,9 +105,11 @@ Note: All the responses message for these API requests are in Json format.
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/winstate.png)
 
 17. Now you are winner! http://127.0.0.1:5000/hanoi/win
+
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/win.png)
     
     or `curl -X GET "http://127.0.0.1:5000/hanoi/win"`
+    
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/wincli.png)
 
 
