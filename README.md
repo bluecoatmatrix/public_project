@@ -1,8 +1,8 @@
-#### Introduction
+## Introduction
 
 This is an application implementation for game engine of Tower of Hanoi. It exposes REST API for client to interact and modify the state of a game following the rules: https://en.wikipedia.org/wiki/Tower_of_Hanoi
 
-#### Requirements
+## Requirements
 
 - Enforce the rules of the game (as stated in the article above) and report an error if any attempted move violates the rules
 - Apply the effects of any valid move to the game state
@@ -10,7 +10,7 @@ This is an application implementation for game engine of Tower of Hanoi. It expo
 - Determine if the victory conditions have been met
 - The game engine must support 4 disks
 
-#### Implementation Details
+## Implementation Details
 
 Current implementation will initialize only one game at a time with 3 robs, index is from 0-2, and 4 disks with size of 4(bottom), 3, 2, 1(top), stacked on the first rob which is index 0. It defines following REST API path for user to play the game on generated default local host http://127.0.0.1:5000 or http://localhost:5000:
 - GET /hanoi/create: to create/initialize a game; every time this API is called, the game state will be reset
@@ -23,37 +23,49 @@ If user try to play the game before creating the game, an error message will be 
 Note: All the responses message for these API requests are in Json format.
 
 
-#### Instructions to run the application and sample play
+## Instructions to run the application and sample play
 
 1. make sure python3 and pip is already installed
 2. clone git repository and go to the package
 3. create a python virtual environment and activate virtual environment
-   ```python3 -m venv env
-      . env/bin/activate
-   ```
+   `python3 -m venv env`
+   `. env/bin/activate`
+   
 4. install the requirements file
-   ```pip3 install -r requirement.txt```
+   `pip3 install -r requirement.txt`
+   
 5. run the application
-   ```python3 src/app.py```
+   `python3 src/app.py`
    You will see following output if it is successful: 
    > Serving Flask app "app" (lazy loading)
+   
    > Environment: production
+   
    > WARNING: This is a development server. Do not use it in a production deployment.
+   
    > Use a production WSGI server instead.
+   
    > Debug mode: on
+   
    > Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+   
    > Restarting with stat
+   
    > Debugger is active!
+   
    > Debugger PIN: 830-297-478
+   
 
 6. open a browser and access http://127.0.0.1:5000/hanoi/create to create the first game
 ![screenshot](create)
-   or from console: `curl -X GET "http://127.0.0.1:5000/hanoi/create"`
+   or from console: 
+   `curl -X GET "http://127.0.0.1:5000/hanoi/create"`
 ![screenshot](create cli)
 
 7. Try to get initial state of the game: http://127.0.0.1:5000/hanoi/state
 ![screenshot](ini state)
-   or `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
+   or 
+   `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
 ![screenshot](ini state cli)
 
 8. Try to make an invalid move with source=-1 from any browser tool can perform put request or run following command; then you will get invalid source error message.
@@ -82,7 +94,8 @@ Note: All the responses message for these API requests are in Json format.
 
 14. Try to check if you have won the game now(not yet) from browser: http://127.0.0.1:5000/hanoi/win
 ![screenshot](nowin)
-    or `curl -X GET "http://127.0.0.1:5000/hanoi/win"` 
+    or 
+    `curl -X GET "http://127.0.0.1:5000/hanoi/win"` 
 ![screenshot](nowin cli)
 
 15. Try all moves from file movestowin.txt to reach winning state. You can try to get any in progress state anytime you want
@@ -90,16 +103,18 @@ Note: All the responses message for these API requests are in Json format.
 
 16. Once reached winning state, try to get the winning state: http://127.0.0.1:5000/hanoi/state
 ![screenshot](win state)
-    or `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
+    or 
+    `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
 ![screenshot](win state cli)
 
 17. Now you are winner! http://127.0.0.1:5000/hanoi/win
 ![screenshot](win)
-    or `curl -X GET "http://127.0.0.1:5000/hanoi/win"`
+    or 
+    `curl -X GET "http://127.0.0.1:5000/hanoi/win"`
 ![screenshot](win cli)
 
 
-#### Other invalid user cases handling
+## Other invalid user cases handling
 
 1. Move disk when source and target arguments are not defined or empty
 ![screenshot](emptysourpara)
@@ -113,7 +128,7 @@ Note: All the responses message for these API requests are in Json format.
 
 
 
-#### To run tests using Pytest with coverage plug-in:
+## To run tests using Pytest with coverage plug-in:
 
 Follwing is an example to run Unit tests and integration tests together
 
@@ -126,16 +141,20 @@ Note: The app.py coverage missing is due to last line is the __main__ function a
 
 
 
-#### Future improvemnts:
+## Future improvemnts:
 
 API response body handling
+
    	Current response body only show a simple message. It would be better to have body format standard and to show more information for all API. 
 
 More disks
+
 	There are only 4 disks created in current game. We can let client to customerize the game to have any number of disks they prefer.
 
 Multiple game instances
+
 	Right now, every time there is only one game can be initialized. We can add support to create multiple games at the same time. We can add sessionID to API design to give the option to access different game instances.   
 
 Security
+
 	It would be better to have authentication to prevent unauthorized users to modify the game state. Furthermore, it would be a good idea to use encryption in the possible deployment to secure communication channels.
