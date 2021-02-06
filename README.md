@@ -62,12 +62,12 @@ Note: All the responses message for these API requests are in Json format.
 
 6. open a browser and access http://127.0.0.1:5000/hanoi/create to create the first game
 ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/create.png)
-   or from console: `curl -X GET "http://127.0.0.1:5000/hanoi/create"`
+or from console: `curl -X GET "http://127.0.0.1:5000/hanoi/create"`
 ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/createcli.png)
 
 7. Try to get initial state of the game: http://127.0.0.1:5000/hanoi/state
 ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/initialstate.png)
-   or `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
+or `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
 ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/Screen%20Shot%202021-02-06%20at%202.35.14%20AM.png)
 
 8. Try to make an invalid move with source=-1 from any browser tool can perform put request or run following command; then you will get invalid source error message.
