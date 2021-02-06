@@ -25,7 +25,11 @@ Note: All the responses message for these API requests are in Json format.
 ## Instructions to run the application and sample play
 
 1. make sure python3 and pip is already installed
+
 2. clone git repository and go to the package
+   `git clone https://github.com/bluecoatmatrix/tower_of_hanoi.git`
+   `cd tower_of_hanoi`
+   
 3. create a python virtual environment and activate virtual environment
    
    `python3 -m venv env`
