@@ -49,9 +49,8 @@ Note: All the responses message for these API requests are in Json format.
     Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
     Restarting with stat
     Debugger is active!
-    Debugger PIN: 830-297-478```
+    Debugger PIN: 830-297-478
    
-
 6. open a browser and access http://127.0.0.1:5000/hanoi/create to create the first game
    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/create.png)
 
@@ -66,61 +65,61 @@ Note: All the responses message for these API requests are in Json format.
 
 8. Try to make an invalid move with source=-1 from any browser tool can perform put request or run following command; then you will get invalid source error message.
 	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=-1&target=1"`
-![screenshot](invalid source)
+   ![screenshot](invalid source)
 
 9. Similarly try on invalid target=4
 	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=4"`
-![screenshot](invalid target)
+   ![screenshot](invalid target)
 
 10. Try on source and target are equal
 	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=0"`
-![screenshot](equal)
+    ![screenshot](equal)
 
 11. Try to move from source has empty disks
 	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=2&target=1"`
-![screenshot](empty source)
+    ![screenshot](empty source)
 
 12. Now make a valid move 
 	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=1"`
-![screenshot](succ move)
+    ![screenshot](succ move)
 
 13. Try to move a bigger disk to a small disk by repeat the last move again
 	`curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=1"`
-![screenshot](invalid move)
+    ![screenshot](invalid move)
 
 14. Try to check if you have won the game now(not yet) from browser: http://127.0.0.1:5000/hanoi/win
-![screenshot](nowin)
-    or 
-    `curl -X GET "http://127.0.0.1:5000/hanoi/win"` 
-![screenshot](nowin cli)
+    ![screenshot](nowin)
+    
+    or `curl -X GET "http://127.0.0.1:5000/hanoi/win"` 
+    ![screenshot](nowin cli)
 
 15. Try all moves from file movestowin.txt to reach winning state. You can try to get any in progress state anytime you want
-![screenshot](inprogress) 
+    ![screenshot](inprogress) 
 
 16. Once reached winning state, try to get the winning state: http://127.0.0.1:5000/hanoi/state
-![screenshot](win state)
-    or 
-    `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
-![screenshot](win state cli)
+    ![screenshot](win state)
+    
+    or `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
+    ![screenshot](win state cli)
 
 17. Now you are winner! http://127.0.0.1:5000/hanoi/win
-![screenshot](win)
-    or 
-    `curl -X GET "http://127.0.0.1:5000/hanoi/win"`
-![screenshot](win cli)
+    ![screenshot](win)
+    
+    or `curl -X GET "http://127.0.0.1:5000/hanoi/win"`
+    ![screenshot](win cli)
 
 
 ## Other invalid user cases handling
 
 1. Move disk when source and target arguments are not defined or empty
-![screenshot](emptysourpara)
-![screenshot](emptytargetparam)
+   ![screenshot](emptysourpara)
+   ![screenshot](emptytargetparam)
 
 2. Use wrong REST API methods 
-![screenshot](wrongmethod)
+   ![screenshot](wrongmethod)
 
 3. Try to check win or get state before the game is created
-![screenshot](beforecreate)
+   ![screenshot](beforecreate)
 
 
 
@@ -131,7 +130,7 @@ Follwing is an example to run Unit tests and integration tests together
 1. Go to tests/ directory: `cd tests`
 2. run:
 	```pytest --cov disk --cov rob --cov hanoi --cov app --cov-report term-missing```
-![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/pytest.png)
+   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/pytest.png)
 
 Note: The app.py coverage missing is due to last line is the __main__ function all. Maybe I can move that call to anohter file. Also it is really hard to find a scenario to trigger exception of create API call.
 
