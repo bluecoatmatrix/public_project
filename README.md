@@ -62,14 +62,16 @@ Note: All the responses message for these API requests are in Json format.
 
 6. open a browser and access http://127.0.0.1:5000/hanoi/create to create the first game
 ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/create.png)
-   or from console: 
+or from console: 
+
 `curl -X GET "http://127.0.0.1:5000/hanoi/create"`
 ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/createcli.png)
 
 7. Try to get initial state of the game: http://127.0.0.1:5000/hanoi/state
-![screenshot](ini state)
+![screenshot]()
    or 
-   `curl -X GET "http://127.0.0.1:5000/hanoi/state"`
+   
+`curl -X GET "http://127.0.0.1:5000/hanoi/state"`
 ![screenshot](ini state cli)
 
 8. Try to make an invalid move with source=-1 from any browser tool can perform put request or run following command; then you will get invalid source error message.
@@ -148,17 +150,13 @@ Note: The app.py coverage missing is due to last line is the __main__ function a
 ## Future improvemnts:
 
 API response body handling
-
-   	Current response body only show a simple message. It would be better to have body format standard and to show more information for all API. 
+	Current response body only show a simple message. It would be better to have body format standard and to show more information for all API. 
 
 More disks
-
 	There are only 4 disks created in current game. We can let client to customerize the game to have any number of disks they prefer.
 
 Multiple game instances
-
 	Right now, every time there is only one game can be initialized. We can add support to create multiple games at the same time. We can add sessionID to API design to give the option to access different game instances.   
 
 Security
-
 	It would be better to have authentication to prevent unauthorized users to modify the game state. Furthermore, it would be a good idea to use encryption in the possible deployment to secure communication channels.
