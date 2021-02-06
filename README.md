@@ -73,19 +73,19 @@ Note: All the responses message for these API requests are in Json format.
    `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=-1&target=1"`
    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/invalidsource.png)
 
-9. Similarly try on invalid target=4
+9. Similarly try on invalid target=4:
    `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=4"`
    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/invalidtarget.png)
 
-10. Try on source and target are equal
+10. Try on source and target are equal:
     `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=0"`
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/source%3Dtarge.png)
 
-11. Try to move from source has empty disks
+11. Try to move from source has empty disks:
     `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=2&target=1"`
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/sourceempty.png)
 
-12. Now make a valid move 
+12. Now make a valid move: 
     `curl -X PUT "http://127.0.0.1:5000/hanoi/move?source=0&target=1"`
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/successfulmove.png)
 
@@ -101,7 +101,9 @@ Note: All the responses message for these API requests are in Json format.
     
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/nowincli.png)
 
-15. Try all moves from file movestowin.txt to reach winning state. You can try to get any in progress state anytime you want
+15. Try all moves from file movestowin.txt to reach winning state. You can check any in-progress state at any time
+    
+    For example:
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/inprogressstate.png) 
 
 16. Once reached winning state, try to get the winning state: http://127.0.0.1:5000/hanoi/state
