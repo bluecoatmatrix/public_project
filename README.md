@@ -102,8 +102,8 @@ Note: All the responses message for these API requests are in Json format.
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/nowincli.png)
 
 15. Try all moves from file movestowin.txt to reach winning state. You can check any in-progress state at any time
-    
     For example:
+    
     ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/inprogressstate.png) 
 
 16. Once reached winning state, try to get the winning state: http://127.0.0.1:5000/hanoi/state
