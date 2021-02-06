@@ -1,8 +1,8 @@
-Introduction
+###Introduction
 
 This is an application implementation for game engine of Tower of Hanoi. It exposes REST API for client to interact and modify the state of a game following the rules: https://en.wikipedia.org/wiki/Tower_of_Hanoi
 
-Requirements
+###Requirements
 
 - Enforce the rules of the game (as stated in the article above) and report an error if any attempted move violates the rules
 - Apply the effects of any valid move to the game state
@@ -10,7 +10,7 @@ Requirements
 - Determine if the victory conditions have been met
 - The game engine must support 4 disks
 
-Implementation Details
+###Implementation Details
 
 Current implementation will initialize only one game at a time with 3 robs, index is from 0-2, and 4 disks with size of 4(bottom), 3, 2, 1(top), stacked on the first rob which is index 0. It defines following REST API path for user to play the game on generated default local host http://127.0.0.1:5000 or http://localhost:5000:
 - GET /hanoi/create: to create/initialize a game; every time this API is called, the game state will be reset
@@ -23,7 +23,7 @@ If user try to play the game before creating the game, an error message will be 
 Note: All the responses message for these API requests are in Json format.
 
 
-Instructions to run the application and sample play
+###Instructions to run the application and sample play
 
 1. make sure python3 and pip is already installed
 2. clone git repository and go to the package
@@ -97,7 +97,7 @@ Instructions to run the application and sample play
 ![screenshot](win cli)
 
 
-Other invalid user cases handling
+###Other invalid user cases handling
 
 1. Move disk when source and target arguments are not defined or empty
 ![screenshot](emptysourpara)
@@ -111,7 +111,7 @@ Other invalid user cases handling
 
 
 
-To run tests using Pytest with coverage plug-in:
+###To run tests using Pytest with coverage plug-in:
 
 Follwing is an example to run Unit tests and integration tests together
 
@@ -124,7 +124,7 @@ Note: The app.py coverage missing is due to last line is the __main__ function a
 
 
 
-Future improvemnts:
+###Future improvemnts:
 
 API response body handling
    	Current response body only show a simple message. It would be better to have body format standard and to show more information for all API. 
