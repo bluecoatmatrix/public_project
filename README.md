@@ -153,7 +153,7 @@ Note: The app.py coverage missing is due to last line is the __main__ function. 
 
 #### More disks
 
-   There are only 4 disks created in current game. We can let client to customerize the game to have any number of disks they prefer.
+   There are only 4 disks created in current game. We can provide more flexibility so that client can customerize the game to have any number of disks they prefer.
 
 #### Multiple game instances
 	
