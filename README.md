@@ -13,7 +13,7 @@ This is an application implementation for game engine of Tower of Hanoi. It expo
 ## Implementation Details
 
 Current implementation will initialize only one game at a time with 3 robs, index is from 0-2, and 4 disks with size of 4(bottom), 3, 2, 1(top), stacked on the first rob which is index 0. It defines following REST API path for user to play the game on generated default local host http://127.0.0.1:5000 or http://localhost:5000:
-- GET /hanoi/create: to create/initialize a game; every time this API is called, the game state will be reset
+- POST /hanoi/create: to create/initialize a game; every time this API is called, the game state will be reset. Also you have to create game first before any other API calls; otherwise a proper error message will be shown(see below for details)
 - GET /hanoi/state: to fetch the complete state of current game of robs and disks ie. {"rob0":[4,3,2], "rob1":[1], "rob2":[]}
 - PUT /hanoi/move?source=num&target=num: to move a disk from source rob to target rob. If it is a valid move, the effects will be saved; otherwise a proper error message will be displayed 
 - GET /hanoi/win: to check if user has won the game at any time they want to. A proper message will be shown to tell the user is won or not
@@ -57,11 +57,10 @@ Note: All the responses message for these API requests are in Json format.
     Debugger is active!
     Debugger PIN: 830-297-478
    
-6. open a browser and access http://127.0.0.1:5000/hanoi/create to create the first game
-   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/create.png)
-
-   or from console: `curl -X GET "http://127.0.0.1:5000/hanoi/create"`
-   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/createcli.png)
+6. open a browser tool that can do POST request and POST http://127.0.0.1:5000/hanoi/create to create the first game
+ 
+   or from console: `curl -X POST "http://127.0.0.1:5000/hanoi/create"`
+   ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/create_game.png)
 
 7. Try to get initial state of the game: http://127.0.0.1:5000/hanoi/state
    ![screenshot](https://github.com/bluecoatmatrix/tower_of_hanoi/blob/main/screenshots/initialstate.png)
