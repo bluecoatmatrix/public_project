@@ -30,27 +30,27 @@ def test_win_exception_without_create(client):
     assert re.search(r'to be created first', res_dict['Message'])
 
 def test_create(client):
-    response = client.get('/hanoi/create')
+    response = client.post('/hanoi/create')
     res_dict = json.loads(response.data)
     assert response.status_code == 200
     assert re.search(r'Game created', res_dict['Message'])
 
 def test_get_initial_state(client):
-    client.get('/hanoi/create')
+    client.post('/hanoi/create')
     response = client.get('/hanoi/state')
     res_dict = json.loads(response.data)
     assert response.status_code == 200
     assert res_dict['rob0'] == [4, 3, 2, 1]
 
 def test_valid_move(client):
-    client.get('/hanoi/create')
+    client.post('/hanoi/create')
     response = client.put('/hanoi/move?source=0&target=1')
     res_dict = json.loads(response.data)
     assert response.status_code == 200
     assert re.search(r'Successfully moved', res_dict['Message'])
 
 def test_bigger_disk_invalid_move(client):
-    client.get('/hanoi/create')
+    client.post('/hanoi/create')
     client.put('/hanoi/move?source=0&target=1')
     response = client.put('/hanoi/move?source=0&target=1')
     res_dict = json.loads(response.data)
@@ -58,35 +58,35 @@ def test_bigger_disk_invalid_move(client):
     assert re.search(r'.*Source disk size is bigger', res_dict['Message'])
 
 def test_invalid_source_index_move(client):
-    client.get('/hanoi/create')
+    client.post('/hanoi/create')
     response = client.put('/hanoi/move?source=-2&target=1')
     res_dict = json.loads(response.data)
     assert response.status_code == 201
     assert re.search(r'Source index.*invalid', res_dict['Message'])
 
 def test_invalid_target_index_move(client):
-    client.get('/hanoi/create')
+    client.post('/hanoi/create')
     response = client.put('/hanoi/move?source=0&target=4')
     res_dict = json.loads(response.data)
     assert response.status_code == 201
     assert re.search(r'Target index.*invalid', res_dict['Message'])
 
 def test_same_source_target_index_move(client):
-    client.get('/hanoi/create')
+    client.post('/hanoi/create')
     response = client.put('/hanoi/move?source=1&target=1')
     res_dict = json.loads(response.data)
     assert response.status_code == 201
     assert re.search(r'Source.*equal', res_dict['Message'])
 
 def test_empty_source_move(client):
-    client.get('/hanoi/create')
+    client.post('/hanoi/create')
     response = client.put('/hanoi/move?source=2&target=1')
     res_dict = json.loads(response.data)
     assert response.status_code == 201
     assert re.search(r'nothing to move', res_dict['Message'])
 
 def test_not_win(client):
-    client.get('/hanoi/create')
+    client.post('/hanoi/create')
     client.put('/hanoi/move?source=0&target=1')
     client.put('/hanoi/move?source=0&target=2')
     client.put('/hanoi/move?source=1&target=2')
@@ -99,7 +99,7 @@ def test_not_win(client):
     assert re.search(r'not won yet', res_dict['Message'])
 
 def test_win(client):
-    client.get('/hanoi/create')
+    client.post('/hanoi/create')
     client.put('/hanoi/move?source=0&target=1')
     client.put('/hanoi/move?source=0&target=2')
     client.put('/hanoi/move?source=1&target=2')
@@ -121,7 +121,7 @@ def test_win(client):
     assert re.search(r'winner', res_dict['Message'])
 
 def test_wrong_request_method_create(client):
-    response = client.post('/hanoi/create')
+    response = client.get('/hanoi/create')
     res_str = str(response.data)
     assert response.status_code == 405
     assert re.search(r'Method Not Allowed', res_str)

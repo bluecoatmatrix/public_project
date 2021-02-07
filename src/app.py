@@ -8,7 +8,7 @@ app.config["DEBUG"] = True
 
 games = [None]
 
-@app.route('/hanoi/create', methods=['GET'])
+@app.route('/hanoi/create', methods=['POST'])
 def create_game():
     try:
         game = Hanoi()
